@@ -1,7 +1,12 @@
 # protected_deserialization
 
 ## Brief
-This project is trying to provide a way to deserialize java objects safely. 
+This project is trying to provide a way to deserialize java objects safely which is lacking so far. 
+
+## Disclaimer
+Use the code at your own risk. 
+Note that some test code here are for demo purpose.
+
 
 ## Background
 I started working on my leisure time in the middle of year 2018. Java deserialization vulnerabilities become a big hit to security since 2016 and rougly speaking, more than half of the java vulnerabilities reported recently are relative to deserialization. If there are 3rd party libraries in your code with deserialization vulnerability, even though you didn't use your code, they can be exploited. For why it is so easy to bexploited, there are many resounce in the web. Or, you can look at these two links for quick explanation. 
@@ -11,7 +16,7 @@ I started working on my leisure time in the middle of year 2018. Java deserializ
 
 
 ## Approach
-Because when a java object is to be deserialized, the class which it is intended to be casted to is usually known in advance. My code will check if serialized data matches to the intended class or not, either by being the same class or a subclass or an implemention. 
+Because when a java object is to be deserialized, the class which it is intended to be casted to is usually known in advance. I have written a subclass ProtectedObjectInputStream of ObjectInputStream. It will check if serialized data matches to the intended class or not, either by being the same class or a subclass or an implemention. 
 
 So far, it can show that this method can be used to protect deserialization in a general approach. 
 
